@@ -3,8 +3,7 @@ for number in numbers:
     print(number)
 
 
-def myFunc(fruit):
-    print(fruit)
+def myFunc(fruit: str):
     return len(fruit)
 
 
@@ -17,7 +16,7 @@ print(list(fruitNameLengths))
 #  The filter method will return a list of all the items that return True
 
 
-def isNameLong(fruitName):
+def isNameLong(fruitName: str):
     return len(fruitName) > 5
 
 
