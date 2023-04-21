@@ -9,6 +9,23 @@ def myFunc(fruit: str):
 
 fruitNameLengths = map(myFunc, ['apple', 'banana', 'cherry', "pear"])
 print(list(fruitNameLengths))
+# or we can pass callback function as lambda
+# next function is the same as the previous one
+fruitNameLengths = map(lambda fruit: len(
+    fruit), ['apple', 'banana', 'cherry', "pear"])
+print(list(fruitNameLengths))
+# also we can pass the index of the list
+fruits = ['apple', 'banana', 'cherry', "pear"]
+fruitNameWithIndex = map(
+    lambda fruit, index: f'''{index} : {fruit}''', fruits, range(len(fruits)))
+# The range will pass the index of the list
+print(list(fruitNameWithIndex))
+
+# fruitNameWithIndex = map(
+#     lambda fruit, index: f'''{index} : {fruit}''', fruits, enumerate(fruits))
+# # The enumerate will pass the index of the list
+print(list(fruitNameWithIndex))
+
 
 #  We can use the filter method to filter a list
 #  The filter method takes a function and a list as arguments
