@@ -1,4 +1,10 @@
 # print("hello world")
+1  # int
+2.5  # float
+"hello"  # string
+True  # boolean
+None  # null
+
 
 # While loop
 while True:
