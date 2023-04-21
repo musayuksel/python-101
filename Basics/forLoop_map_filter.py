@@ -23,3 +23,14 @@ def isNameLong(fruitName):
 
 longFruitNames = filter(isNameLong, ['apple', 'banana', 'cherry', "pear"])
 print(list(longFruitNames))
+
+
+# RANGE
+#  The range function returns a list of numbers
+#  The range function takes 3 arguments
+#  The first argument is the start of the range (inclusive) (default 0)
+#  The second argument is the end of the range (exclusive) (required) and the third argument is the step (default 1)
+numbers2 = range(1, 10, 2)
+print(list(numbers2))
+doubleNumbers = map(lambda num: num * 2, numbers2)
+print(list(doubleNumbers))
