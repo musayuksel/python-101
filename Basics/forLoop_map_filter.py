@@ -7,15 +7,15 @@ def myFunc(fruit: str):
     return len(fruit)
 
 
-fruitNameLengths = map(myFunc, ['apple', 'banana', 'cherry', "pear"])
+fruits = ['apple', 'banana', 'cherry', "pear"]
+fruitNameLengths = map(myFunc, fruits)
 print(list(fruitNameLengths))
 # or we can pass callback function as lambda
 # next function is the same as the previous one
 fruitNameLengths = map(lambda fruit: len(
-    fruit), ['apple', 'banana', 'cherry', "pear"])
+    fruit), fruits)
 print(list(fruitNameLengths))
 # also we can pass the index of the list
-fruits = ['apple', 'banana', 'cherry', "pear"]
 fruitNameWithIndex = map(
     lambda fruit, index: f'''{index} : {fruit}''', fruits, range(len(fruits)))
 # The range will pass the index of the list
