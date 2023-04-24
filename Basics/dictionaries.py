@@ -16,12 +16,18 @@ person = {
 #  We can access the value of a key using square brackets
 print(person["name"])  # Harry
 print(person["address"]["city"])  # London
-print(person.keys())  # dict_keys(['name', 'age', 'hobbies', 'address'])
+# dict_keys(['name', 'age', 'hobbies', 'address'])
+print("person.keys()=>", person.keys())
 # dict_values(['Harry', 17, ['football', 'coding'], {'street': '123 Main St', 'city': 'London'}])
-print(person.values())
+print("person.values()=>", person.values())
 
 # UPDATE
 #  We can add a new key value pair to a dictionary using square brackets
 person["phone"] = "555-555-5555"
 # {'name': 'Harry', 'age': 17, 'hobbies': ['football', 'coding'], 'address': {'street': '123 Main St', 'city': 'London'}, 'phone': '555-555-5555'}
 print(person)
+
+# LOOP THROUGH DICTIONARY
+#  We can loop through a dictionary using a for loop
+for key, value in person.items():
+    print("key :", key, "=> value :", value)
