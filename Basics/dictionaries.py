@@ -29,5 +29,19 @@ print(person)
 
 # LOOP THROUGH DICTIONARY
 #  We can loop through a dictionary using a for loop
+print(">>>>>>>>>>>>>>>>>>>> Loop <<<<<<<<<<<<<<<<<<<<<<<")
 for key, value in person.items():
     print("key :", key, "=> value :", value)
+
+#  We can use the map method to loop through a dictionary, but it will only return the keys
+# here is the example of map method
+
+print(">>>>>>>>>>>>>>>>>>>> map method <<<<<<<<<<<<<<<<<<<<<<<")
+
+
+def myFunc(key, value):
+    return str(key) + ":" + str(value)
+
+
+personKeys = map(myFunc, person.keys(), person.values())
+print(list(personKeys))
