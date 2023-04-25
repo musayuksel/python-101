@@ -1,7 +1,7 @@
 # uvicorn main:app --reload  # --reload: auto reload when code changes
 # from typing import Union
 # FastAPI is a Python class that provides all the functionality for your API.
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel  # for request body
 
 # The app variable will be an "instance" of the class FastAPI.
@@ -55,3 +55,13 @@ async def update_item(item_id: int, item: Item):
 async def create_item(item: Item):
     items.append(item)
     return {"message": "Item created"}
+
+
+# define a default endpoint to handle all other requests
+@app.get("/{path:path}")
+async def catch_all(path: str):
+    raise HTTPException(
+        status_code=404,
+        detail={
+            "message": "Endpoint not found. Please check your link."
+        })
