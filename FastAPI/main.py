@@ -1,5 +1,5 @@
 # uvicorn main:app --reload  # --reload: auto reload when code changes
-from typing import Union
+# from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel  # for request body
 
@@ -30,7 +30,8 @@ async def read_items():
 
 
 @app.get("/items/{item_id}")
-async def read_item(item_id: int, query: Union[str, None] = None):
+# async def read_item(item_id: int, query: Union[str, None] = None):
+async def read_item(item_id: int, query: str | None = None):
     return {"item_id": item_id, "query": query}
 
 
