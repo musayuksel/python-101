@@ -7,14 +7,15 @@ app = FastAPI()
 
 # Request body
 
-# Empty list to store items
-items = []
-
 
 class Item(BaseModel):
     name: str
     price: float
     is_offer: bool = None
+
+
+# Empty list to store items
+items: list[Item] = []
 
 
 @app.get("/")
@@ -24,6 +25,7 @@ async def read_root():
 
 @app.get("/items/")
 async def read_items():
+    # print(items[0].name) # It will suggest the name attribute thanks to type hinting
     return {"items": items}
 
 
