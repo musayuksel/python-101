@@ -43,3 +43,20 @@ async def update_item(
     },
     "importance": 5
 }
+
+
+# NESTED MODELS
+class Image(BaseModel):
+    url: str
+    name: str
+
+
+class Item2(BaseModel):
+    name: str
+    image: list[Image] = []  # list of Image objects, default to empty list
+
+
+@app.post("/images/{image_id}")
+async def update_item(image_id: int, item2: Item2):
+    results = {"image_id": image_id, "item2": item2}
+    return results
