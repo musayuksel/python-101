@@ -31,3 +31,13 @@ async def create_item(item: Item):
         price_with_tax = item.price + item.tax
         item_dict.update({"price_with_tax": price_with_tax})
     return item_dict
+
+
+# Request body + path parameters + query parameters
+@app.put("/items/{item_id}")
+async def create_item(item_id: int, item: Item, optional: str | None = None):
+    # unpack the item dict and add business logic
+    result = {"item_id": item_id, **item.dict()}
+    if optional:
+        result.update({"optional": optional})
+    return result
