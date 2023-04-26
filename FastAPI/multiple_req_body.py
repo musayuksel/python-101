@@ -55,6 +55,23 @@ class Item2(BaseModel):
     name: str
     image: list[Image] = []  # list of Image objects, default to empty list
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "name": "Foo",
+                "image": [
+                    {
+                        "url": "http://example.com/baz.jpg",
+                        "name": "The Foo live"
+                    },
+                    {
+                        "url": "http://example.com/dave.jpg",
+                        "name": "The Dave live"
+                    }
+                ]
+            }
+        }
+
 
 @app.post("/images/{image_id}")
 async def update_item(image_id: int, item2: Item2):
