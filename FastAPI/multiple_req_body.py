@@ -7,9 +7,11 @@ app = FastAPI()
 
 class Item(BaseModel):
     # name will be min 3 characters and max 50 characters
-    name: str = Field(..., min_length=3, max_length=50)
+    name: str = Field(min_length=3, max_length=50)
     description: str | None = None
-    price: float
+    price: float = Field(gt=-1,
+                         description="The price must be greater than zero", default=0)
+    # tax is optional, but if provided, it must be greater than zero, default to 0
     tax: float | None = None
 
 
