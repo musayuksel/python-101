@@ -1,5 +1,5 @@
 
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -69,6 +69,8 @@ class UserIn2(BaseUser):
 # userIn2 inherits from BaseUser, so it will have all the fields from BaseUser, plus the password field. it is DRY
 
 
-@app.post("/user-advance/", status_code=201)  # status_code is optional
+# @app.post("/user-advance/", status_code=201)  # status_code is optional
+# status_code is optional
+@app.post("/user-advance/", status_code=status.HTTP_201_CREATED)
 async def create_user2(user: UserIn2) -> BaseUser:
     return user
