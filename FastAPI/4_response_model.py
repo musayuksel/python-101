@@ -69,6 +69,6 @@ class UserIn2(BaseUser):
 # userIn2 inherits from BaseUser, so it will have all the fields from BaseUser, plus the password field. it is DRY
 
 
-@app.post("/user-advance/")
+@app.post("/user-advance/", status_code=201)  # status_code is optional
 async def create_user2(user: UserIn2) -> BaseUser:
     return user
