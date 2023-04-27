@@ -53,3 +53,22 @@ async def create_user(user: UserIn) -> any:
     # # return the data without the password field
 
     return user
+
+# MORE ADVANCED RESPONSE MODEL CUSTOMIZATION WITH INHERITANCE
+
+
+class BaseUser(BaseModel):
+    username: str
+    email: str
+    full_name: str | None = None
+
+
+class UserIn2(BaseUser):
+    password: str
+
+# userIn2 inherits from BaseUser, so it will have all the fields from BaseUser, plus the password field. it is DRY
+
+
+@app.post("/user-advance/")
+async def create_user2(user: UserIn2) -> BaseUser:
+    return user
