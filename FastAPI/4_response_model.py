@@ -29,3 +29,27 @@ async def read_items() -> any:
         Item(name="Portal Gun", price=42.0),
         Item(name="Plumbus", price=32.0),
     ]
+
+
+# USING DIFFERENT RESPONSE MODELS
+# You can declare multiple response models, and use them in different path operations.
+class UserIn(BaseModel):
+    username: str
+    password: str
+    email: str
+    full_name: str | None = None
+
+
+class UserOut(BaseModel):
+    username: str
+    email: str
+    full_name: str | None = None
+
+
+@app.post("/user/", response_model=UserOut)
+async def create_user(user: UserIn) -> any:
+    # FastAPI will:
+    # # Validate the data sent by the client at request time
+    # # return the data without the password field
+
+    return user
