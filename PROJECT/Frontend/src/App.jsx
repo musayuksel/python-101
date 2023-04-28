@@ -1,13 +1,18 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  async function getData() {
-    const response = await fetch("http://localhost:8000/");
-    const data = await response.json();
-    console.log(data);
-  }
+  const [questions, setQuestions] = useState([]);
 
-  getData();
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch("http://127.0.0.1:8000/api/questions");
+      const data = await response.json();
+      console.log({ data });
+      setQuestions(data);
+    }
+    getData();
+  }, []);
 
   return <>Hello world!</>;
 }
