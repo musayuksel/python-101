@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-// eslint-disable-next-line react/prop-types
 export default function Question({
   question = {},
   setCurrentQuestionIndex,
@@ -34,3 +33,9 @@ export default function Question({
     </section>
   );
 }
+
+Question.propTypes = {
+  question: () => {},
+  setCurrentQuestionIndex: () => {},
+  setCorrectAnsCounter: () => {},
+};
