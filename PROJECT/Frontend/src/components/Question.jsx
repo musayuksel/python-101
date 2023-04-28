@@ -25,7 +25,11 @@ export default function Question({
       <p>{question.question}</p>
       <ul className="question-options-container">
         {question.options?.map((option, index) => (
-          <li onClick={() => handleSelectOption(option)} key={index}>
+          <li
+            className={`${selectedAns === option ? "selected" : ""}`}
+            onClick={() => handleSelectOption(option)}
+            key={index}
+          >
             {option}
           </li>
         ))}
