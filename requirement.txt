@@ -1,2 +1,3 @@
 fastapi
 uvicorn
+gunicorn==20.0.4
