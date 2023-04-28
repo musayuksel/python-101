@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Question from "./components/Question";
+import { Link, Route, Routes } from "react-router-dom";
 
 function App() {
   const [currentQuiz, setCurrentQuiz] = useState({});
@@ -20,16 +21,34 @@ function App() {
     <>
       <h1>Subject: {currentQuiz?.title}</h1>
       <h2>Total question: {currentQuiz.questions?.length}</h2>
-      {currentQuiz.questions?.[currentQuestionIndex] && (
-        <Question question={currentQuiz?.questions?.[currentQuestionIndex]} />
-      )}
-      <button
-        onClick={() => {
-          setCurrentQuestionIndex(currentQuestionIndex + 1);
-        }}
-      >
-        Next
-      </button>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <button>
+              <Link to="/quiz">Start</Link>
+            </button>
+          }
+        />
+        <Route
+          path="/quiz"
+          element={
+            <>
+              <Question
+                question={currentQuiz?.questions?.[currentQuestionIndex]}
+              />
+              <button
+                onClick={() => {
+                  setCurrentQuestionIndex(currentQuestionIndex + 1);
+                }}
+              >
+                Next
+              </button>
+            </>
+          }
+        />
+      </Routes>
     </>
   );
 }
