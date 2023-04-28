@@ -1,10 +1,9 @@
-export default function Question({ question }) {
-  const { question: questionText, options, answer } = question;
+export default function Question({ question = {} }) {
   return (
     <section>
-      <p>{questionText}</p>
+      <p>{question.question}</p>
       <ul>
-        {options?.map((option, index) => (
+        {question.options?.map((option, index) => (
           <li key={index}>{option}</li>
         ))}
       </ul>
