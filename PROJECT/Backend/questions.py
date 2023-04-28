@@ -1,5 +1,5 @@
 questions = {
-    "quiz": {
+    "current_quiz": {
         "title": "UX Quiz",
         "questions": [
             {
