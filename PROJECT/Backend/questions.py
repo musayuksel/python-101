@@ -1,5 +1,6 @@
 current_quiz = {
     "title": "UX Quiz",
+    "description": "Test your knowledge of UX design!",
     "questions": [
         {
             "id": 1,
