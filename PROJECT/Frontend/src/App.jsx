@@ -3,8 +3,10 @@ import "./App.css";
 import Question from "./components/Question";
 import { Link, Route, Routes } from "react-router-dom";
 import andLogo from "./assets/and-logo.png";
+import Dashboard from "./components/Dashboard";
+
+export const baseAPILink = "http://127.0.0.1:8000/api";
 function App() {
-  const baseAPILink = "http://127.0.0.1:8000/api";
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
@@ -36,9 +38,12 @@ function App() {
         <Route
           path="/"
           element={
-            <Link to="/quiz">
-              <button>Start</button>
-            </Link>
+            <>
+              <Dashboard />
+              <Link to="/quiz">
+                <button>Start</button>
+              </Link>
+            </>
           }
         />
         <Route
