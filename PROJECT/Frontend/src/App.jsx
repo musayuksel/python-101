@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Question from "./components/Question";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import andLogo from "./assets/and-logo.png";
 import Dashboard from "./components/Dashboard";
 
@@ -11,6 +11,7 @@ function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [correctAnsCounter, setCorrectAnsCounter] = useState(0);
 
+  const navigate = useNavigate();
   useEffect(() => {
     async function getData() {
       const response = await fetch(`${baseAPILink}/current_quiz`);
@@ -19,6 +20,23 @@ function App() {
     }
     getData();
   }, []);
+
+  async function handleSubmit() {
+    const response = await fetch(`${baseAPILink}/user_scores`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "Musa Yuxel",
+        score: correctAnsCounter,
+      }),
+    });
+    if (response.status === 201) {
+      alert("Your score is saved!");
+      navigate("/");
+    }
+  }
 
   return (
     <>
@@ -65,7 +83,7 @@ function App() {
                 Prev
               </button>
               {currentQuestionIndex === currentQuiz?.questions?.length - 1 && (
-                <button>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
               )}
             </>
           }
