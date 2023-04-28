@@ -4,12 +4,13 @@ import Question from "./components/Question";
 import { Link, Route, Routes } from "react-router-dom";
 import andLogo from "./assets/and-logo.png";
 function App() {
+  const baseAPILink = "http://127.0.0.1:8000/api";
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   useEffect(() => {
     async function getData() {
-      const response = await fetch("http://127.0.0.1:8000/api/current_quiz");
+      const response = await fetch(`${baseAPILink}/current_quiz`);
       const data = await response.json();
       setCurrentQuiz(data.current_quiz);
     }
@@ -20,11 +21,7 @@ function App() {
     <>
       <header>
         <Link to="/" className="logo_link">
-          <img
-            src={andLogo}
-            alt="Page logo with letter M & Y"
-            className="logo_img"
-          />
+          <img src={andLogo} alt="and-logo" className="logo_img" />
         </Link>
         <nav>
           <Link className="dashboard-link" to="/">
