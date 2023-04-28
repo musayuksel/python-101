@@ -19,6 +19,6 @@ app.add_middleware(
 )
 
 
-@app.get("/")
+@app.get("/api/questions")
 async def read_root():
     return {"questions": questions}
