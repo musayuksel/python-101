@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Question from "./components/Question";
 
 function App() {
   const [currentQuiz, setCurrentQuiz] = useState({});
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   useEffect(() => {
     async function getData() {
@@ -18,6 +20,16 @@ function App() {
     <>
       <h1>Subject: {currentQuiz?.title}</h1>
       <h2>Total question: {currentQuiz.questions?.length}</h2>
+      {currentQuiz.questions?.[currentQuestionIndex] && (
+        <Question question={currentQuiz?.questions?.[currentQuestionIndex]} />
+      )}
+      <button
+        onClick={() => {
+          setCurrentQuestionIndex(currentQuestionIndex + 1);
+        }}
+      >
+        Next
+      </button>
     </>
   );
 }
