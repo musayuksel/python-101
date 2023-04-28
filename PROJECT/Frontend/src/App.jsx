@@ -9,6 +9,7 @@ export const baseAPILink = "http://127.0.0.1:8000/api";
 function App() {
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [correctAnsCounter, setCorrectAnsCounter] = useState(0);
 
   useEffect(() => {
     async function getData() {
@@ -33,6 +34,7 @@ function App() {
       </header>
       <h1>Subject: {currentQuiz?.title}</h1>
       <h2>Total question: {currentQuiz.questions?.length}</h2>
+      <h2>Correct answer: {correctAnsCounter}</h2>
 
       <Routes>
         <Route
@@ -52,6 +54,8 @@ function App() {
             <>
               <Question
                 question={currentQuiz?.questions?.[currentQuestionIndex]}
+                setCurrentQuestionIndex={setCurrentQuestionIndex}
+                setCorrectAnsCounter={setCorrectAnsCounter}
               />
               <button
                 onClick={() => {
@@ -59,13 +63,6 @@ function App() {
                 }}
               >
                 Prev
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentQuestionIndex(currentQuestionIndex + 1);
-                }}
-              >
-                Next
               </button>
               {currentQuestionIndex === currentQuiz?.questions?.length - 1 && (
                 <button>Submit</button>
