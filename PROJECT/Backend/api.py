@@ -2,6 +2,7 @@ from fastapi import FastAPI
 # from pydantic import BaseModel  # for request body
 
 from fastapi.middleware.cors import CORSMiddleware
+from questions import questions
 
 app = FastAPI()
 
@@ -20,4 +21,4 @@ app.add_middleware(
 
 @app.get("/")
 async def read_root():
-    return {"message": "Hello World!"}
+    return {"questions": questions}
