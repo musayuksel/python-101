@@ -53,11 +53,21 @@ function App() {
               />
               <button
                 onClick={() => {
+                  setCurrentQuestionIndex(currentQuestionIndex - 1);
+                }}
+              >
+                Prev
+              </button>
+              <button
+                onClick={() => {
                   setCurrentQuestionIndex(currentQuestionIndex + 1);
                 }}
               >
                 Next
               </button>
+              {currentQuestionIndex === currentQuiz?.questions?.length - 1 && (
+                <button>Submit</button>
+              )}
             </>
           }
         />
