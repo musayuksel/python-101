@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Question from "./components/Question";
 import { Link, Route, Routes } from "react-router-dom";
-
+import andLogo from "./assets/and-logo.png";
 function App() {
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -18,6 +18,20 @@ function App() {
 
   return (
     <>
+      <header>
+        <Link to="/" className="logo_link">
+          <img
+            src={andLogo}
+            alt="Page logo with letter M & Y"
+            className="logo_img"
+          />
+        </Link>
+        <nav>
+          <Link className="dashboard-link" to="/">
+            Dashboard
+          </Link>
+        </nav>
+      </header>
       <h1>Subject: {currentQuiz?.title}</h1>
       <h2>Total question: {currentQuiz.questions?.length}</h2>
 
@@ -25,9 +39,9 @@ function App() {
         <Route
           path="/"
           element={
-            <button>
-              <Link to="/quiz">Start</Link>
-            </button>
+            <Link to="/quiz">
+              <button>Start</button>
+            </Link>
           }
         />
         <Route
