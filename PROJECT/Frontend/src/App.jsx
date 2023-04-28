@@ -74,14 +74,10 @@ function App() {
                 question={currentQuiz?.questions?.[currentQuestionIndex]}
                 setCurrentQuestionIndex={setCurrentQuestionIndex}
                 setCorrectAnsCounter={setCorrectAnsCounter}
+                isLastQuestion={
+                  currentQuestionIndex === currentQuiz?.questions?.length - 1
+                }
               />
-              <button
-                onClick={() => {
-                  setCurrentQuestionIndex(currentQuestionIndex - 1);
-                }}
-              >
-                Prev
-              </button>
               {currentQuestionIndex === currentQuiz?.questions?.length - 1 && (
                 <button onClick={handleSubmit}>Submit</button>
               )}

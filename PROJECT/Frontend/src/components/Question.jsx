@@ -4,6 +4,7 @@ export default function Question({
   question = {},
   setCurrentQuestionIndex,
   setCorrectAnsCounter,
+  isLastQuestion,
 }) {
   const [selectedAns, setSelectedAns] = useState("");
 
@@ -29,7 +30,7 @@ export default function Question({
           </li>
         ))}
       </ul>
-      <button onClick={handleNextBtn}>Next</button>
+      {!isLastQuestion && <button onClick={handleNextBtn}>Next</button>}
     </section>
   );
 }
@@ -38,4 +39,5 @@ Question.propTypes = {
   question: () => {},
   setCurrentQuestionIndex: () => {},
   setCorrectAnsCounter: () => {},
+  isLastQuestion: () => Boolean(),
 };
