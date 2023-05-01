@@ -21,6 +21,11 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
+
 @app.get("/api/current_quiz")
 async def read_root():
     return {"current_quiz": current_quiz}
