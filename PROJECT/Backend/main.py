@@ -1,3 +1,7 @@
+# To deploy the backend server to GOOGLE CLOUD use the following link:
+# https://tutlinks.com/deploy-fastapi-app-on-google-cloud-platform/
+
+
 from fastapi import FastAPI, status
 from pydantic import BaseModel  # for request body
 
