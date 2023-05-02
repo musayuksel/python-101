@@ -1,6 +1,6 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
-
+from fastapi.staticfiles import StaticFiles
 from . import crud, models, schemas
 from .database import SessionLocal, engine
 
@@ -19,6 +19,10 @@ def get_db():
     finally:
         db.close()
         # The db.close() will close the database session, after the with statement finishes, no matter what.  Even if there was an exception .
+
+
+app.mount("/", StaticFiles(directory="PostgreSQL_APP/static",
+          html=True), name="static")
 
 
 @app.post("/users/", response_model=schemas.User)
