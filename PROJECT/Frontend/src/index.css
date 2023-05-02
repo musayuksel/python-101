@@ -73,6 +73,9 @@ nav .dashboard-link:hover::before {
 }
 
 /*  Question options styles */
+.question-container {
+  margin: 1rem 0;
+}
 ul.question-options-container {
   cursor: pointer;
   display: flex;
@@ -119,4 +122,20 @@ ul.question-options-container li.selected {
   border-radius: 8px;
   padding: 10px;
   border: 1px solid #efefef;
+}
+
+.submit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+.submit-container input {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+}
+.submit-container input:focus {
+  outline: none;
 }

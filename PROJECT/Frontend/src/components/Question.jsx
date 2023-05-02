@@ -21,8 +21,8 @@ export default function Question({
   }
 
   return (
-    <section>
-      <p>{question.question}</p>
+    <section className="question-container">
+      <h3>{question.question}</h3>
       <ul className="question-options-container">
         {question.options?.map((option, index) => (
           <li
