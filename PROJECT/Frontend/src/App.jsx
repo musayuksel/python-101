@@ -11,7 +11,7 @@ function App() {
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [correctAnsCounter, setCorrectAnsCounter] = useState(0);
-  const [userName, setUserName] = useState({ name: "Musa Yuxel" });
+  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     async function getData() {
@@ -91,7 +91,15 @@ function App() {
                     placeholder="full name"
                   />
 
-                  <button onClick={handleSubmit}>Submit</button>
+                  <button
+                    style={{
+                      cursor: `${userName ? "pointer" : "not-allowed"}`,
+                    }}
+                    disabled={userName ? false : true}
+                    onClick={handleSubmit}
+                  >
+                    Submit
+                  </button>
                 </section>
               )}
             </>
