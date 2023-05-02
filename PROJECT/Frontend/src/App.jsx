@@ -5,7 +5,7 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import andLogo from "./assets/and-logo.png";
 import Dashboard from "./components/Dashboard";
 
-export const baseAPILink = "http://127.0.0.1:8000/api";
+export const baseAPILink = "https://survey-demo-api.ew.r.appspot.com/api";
 function App() {
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
