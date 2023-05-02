@@ -5,12 +5,13 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import andLogo from "./assets/and-logo.png";
 import Dashboard from "./components/Dashboard";
 
+// export const baseAPILink = "http://127.0.0.1:8000/api";
 export const baseAPILink = "https://survey-demo-api.ew.r.appspot.com/api";
 function App() {
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [correctAnsCounter, setCorrectAnsCounter] = useState(0);
-
+  const [userName, setUserName] = useState({ name: "Musa Yuxel" });
   const navigate = useNavigate();
   useEffect(() => {
     async function getData() {
@@ -28,12 +29,14 @@ function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "Musa Yuxel",
+        name: userName,
         score: correctAnsCounter,
       }),
     });
     if (response.status === 201) {
       alert("Your score is saved!");
+      setCurrentQuestionIndex(0);
+      setCorrectAnsCounter(0);
       navigate("/");
     }
   }
@@ -51,8 +54,10 @@ function App() {
         </nav>
       </header>
       <h1>Subject: {currentQuiz?.title}</h1>
-      <h2>Total question: {currentQuiz.questions?.length}</h2>
-      <h2>Correct answer: {correctAnsCounter}</h2>
+      <h2>
+        Total question: {currentQuestionIndex} / {currentQuiz.questions?.length}
+      </h2>
+      <p>Correct answer: {correctAnsCounter}</p>
 
       <Routes>
         <Route
@@ -79,7 +84,15 @@ function App() {
                 }
               />
               {currentQuestionIndex === currentQuiz?.questions?.length - 1 && (
-                <button onClick={handleSubmit}>Submit</button>
+                <section className="submit-container">
+                  <input
+                    onChange={(e) => setUserName(e.target.value)}
+                    type="text"
+                    placeholder="full name"
+                  />
+
+                  <button onClick={handleSubmit}>Submit</button>
+                </section>
               )}
             </>
           }
