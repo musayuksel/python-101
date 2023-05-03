@@ -7,4 +7,7 @@ def square(number: int) -> int:
     return number ** 2
 
 
-print(f'The square of 4 is {square(4)}')
+# print(f'The square of 4 is {square(4)}')
+
+def multiply(number1: int, number2: int) -> int:
+    return number1 * number2
