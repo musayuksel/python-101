@@ -44,3 +44,20 @@ def is_destructive(string: str) -> str:
 
 print(is_destructive(example_input))  # NO!
 print(is_destructive(example_input2))  # Safe watching!
+
+
+######### EXERCISE 3 #########
+# 3) Create a function that takes a string as an argument and returns a coded (h4ck3r 5p34k) version of the string.
+# In order to work properly, the function should replace all "a"s with 4, "e"s with 3, "i"s with 1, "o"s with 0, and "s"s with 5.
+example_message = "anddigital is cool"  # "4ndd1g1t4l 15 c00l"
+
+
+def hacker_speak(message: str) -> str:
+    letters = {"a": "4", "e": "3", "i": "1", "o": "0", "s": "5"}
+    secret_message = map(
+        lambda letter: letters[letter] if letter in letters else letter, list(message))
+    return "".join(secret_message)
+
+
+hacker_speak_message = hacker_speak(example_message)
+print(hacker_speak_message)  # 4ndd1g1t4l 15 c00l
