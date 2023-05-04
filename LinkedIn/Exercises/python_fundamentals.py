@@ -4,7 +4,7 @@ example_input = {'ANDi1': 'John', 'ANDi2': 'Bob', 'ANDi3': 'Alice'}
 # example output: ['Alice', 'Bob', 'John']
 
 
-def sort_dict_names(dictionary):
+def sort_dict_names(dictionary: dict) -> list:
     return sorted(dictionary.values())
 
 
@@ -30,10 +30,8 @@ print(sort_dict_names)
 
 
 example_input = "I'm trying to watch a video on Python but I keep getting distracted by a dog"
-example_output = "NO!"
-
-example_input2 = "I'm trying to watch a video on Python"
-example_output2 = "Safe watching!"
+# NO!
+example_input2 = "I'm trying to watch a video on Python"  # Safe watching!
 
 
 def is_destructive(string: str) -> str:
