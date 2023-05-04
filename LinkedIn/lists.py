@@ -46,3 +46,17 @@ print(repr(fruits[0]))  # Fruit(apple, 10)
 # The first argument is the start of the range (inclusive) (default 0)
 # The second argument is the end of the range (exclusive) (required) and the third argument is the step (default 1)
 numbers2 = range(1, 10, 2)  # [1, 3, 5, 7, 9]
+
+# SETS
+# Sets are unordered collections of unique elements
+# Sets are mutable
+# Sets are not indexed
+# Sets are not subscriptable
+my_set = {1, 2, 3, 4, 5, 5, 5, 5, 5}
+my_set.add(6)
+my_set.add(7)
+my_set.add(7)
+print(my_set)  # {1, 2, 3, 4, 5, 6, 7}
+for i in my_set:
+    print(i)
+# print(my_set[0])  # TypeError: 'set' object is not subscriptable
