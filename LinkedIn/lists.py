@@ -38,3 +38,11 @@ sorted_with_weight = sorted(fruits, key=lambda fruit: fruit.weight)
 print(sorted_with_weight)
 print(str(fruits[0]))  # Fruit name is :apple, and the weight is: 10
 print(repr(fruits[0]))  # Fruit(apple, 10)
+
+
+# Range
+# The range function returns a list of numbers
+# The range function takes 3 arguments
+# The first argument is the start of the range (inclusive) (default 0)
+# The second argument is the end of the range (exclusive) (required) and the third argument is the step (default 1)
+numbers2 = range(1, 10, 2)  # [1, 3, 5, 7, 9]
