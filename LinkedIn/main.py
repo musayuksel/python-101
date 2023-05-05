@@ -44,3 +44,12 @@ print(Decimal('1.2') - Decimal('1.0'))  # 0.2
 int('10')  # 10
 int('10', 2)  # 2 binary
 int('1abc', 16)  # 6844 hexadecimal
+
+# Boolean
+bool(0)  # False
+bool(1)  # True
+bool('')  # False
+bool([])  # False
+bool({})  # False
+bool(())  # False
+bool(None)  # False
