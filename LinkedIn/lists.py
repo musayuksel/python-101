@@ -60,3 +60,18 @@ print(my_set)  # {1, 2, 3, 4, 5, 6, 7}
 for i in my_set:
     print(i)
 # print(my_set[0])  # TypeError: 'set' object is not subscriptable
+
+
+# ADVANCE SLICING
+# [start:stop:step]
+example_list_or_str = [1, 2, 3, 4, 5, 6, 7, 8, 9]  # or '123456789'
+# [9, 8, 7, 6, 5, 4, 3, 2, 1] or 987654321
+print(">>>>>>>", example_list_or_str[::-1])  # -1 means reverse
+# [1, 3, 5, 7, 9] or 13579 #2 means every other element
+print(example_list_or_str[::2])
+
+print(example_list_or_str[1:7:2])  # [2, 4, 6]
+# we can use 2 values for slicing
+print(example_list_or_str[1:7])  # [2, 3, 4, 5, 6, 7]
+print(example_list_or_str[1:])  # [2, 3, 4, 5, 6, 7, 8, 9]
+print(example_list_or_str[:7])  # [1, 2, 3, 4, 5, 6, 7]
