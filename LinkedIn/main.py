@@ -3,6 +3,8 @@ import random
 import math
 import calendar
 
+from decimal import Decimal
+
 
 def print_hi(name: str) -> None:
     print(f'Hi, {name}')
@@ -30,3 +32,15 @@ print(random.choice(numbers))  # print a random number from the tuple
 print(random.choice('computer'))  # print a random letter from the string
 random.shuffle(numbers)  # shuffle the list
 print(numbers)
+
+
+print(round(8.92318, 4))  # 8.9232
+print((1.2 - 1.0))  # weird result 0.19999999999999996
+# Decimal is a class from the decimal module
+# It is used for decimal floating point arithmetic
+print(Decimal('1.2') - Decimal('1.0'))  # 0.2
+
+
+int('10')  # 10
+int('10', 2)  # 2 binary
+int('1abc', 16)  # 6844 hexadecimal
