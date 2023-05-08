@@ -75,3 +75,15 @@ print(example_list_or_str[1:7:2])  # [2, 4, 6]
 print(example_list_or_str[1:7])  # [2, 3, 4, 5, 6, 7]
 print(example_list_or_str[1:])  # [2, 3, 4, 5, 6, 7, 8, 9]
 print(example_list_or_str[:7])  # [1, 2, 3, 4, 5, 6, 7]
+
+
+# INSERT METHOD
+# The insert method takes 2 arguments
+# insert(index, object)
+# POP METHOD is the same in JS
+
+# COPY METHOD
+# The copy method returns a shallow copy of the list
+# The copy method takes no arguments
+a = [1, 2, 3]
+b = a.copy()  # shallow copy
