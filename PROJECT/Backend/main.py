@@ -24,6 +24,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def read_main():
+    return {"msg": "Hello World"}
 
 @app.get("/api/current_quiz")
 async def read_root():
