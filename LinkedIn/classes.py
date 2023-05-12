@@ -12,6 +12,10 @@ class Dog:
     def get_legs(self):
         return self._legs
     
+    @staticmethod # decorator !!!! static method
+    def speak(sound):
+        # static method
+        print(f"{sound}")
 
     def bark(self):
         print(f"{self.name} says woof!")
@@ -22,3 +26,7 @@ my_dog.bark()  # We call it without passing any arguments because the self argum
 
 # print(my_dog._legs) #we don't use with this way
 print(my_dog.get_legs) # we use with this way
+
+# calling static method
+Dog.speak("woof woof")
+my_dog.speak("woof woof") # we can call static method with object
