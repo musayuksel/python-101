@@ -29,7 +29,7 @@ async def read_main():
     return {"msg": "Hello World"}
 
 @app.get("/api/current_quiz")
-async def read_root():
+async def get_current_quiz():
     return {"current_quiz": current_quiz}
 
 
