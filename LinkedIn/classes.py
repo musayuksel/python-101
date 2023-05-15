@@ -13,6 +13,7 @@ class Dog:
         return self._legs
     
     @staticmethod # decorator !!!! static method
+    # static method is a method that doesn't take self as an argument
     def speak(sound):
         # static method
         print(f"{sound}")
