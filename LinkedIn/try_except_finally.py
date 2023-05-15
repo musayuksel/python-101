@@ -17,7 +17,7 @@ def some_function():
         print(f"Execution time: {end - start}")
 
 
-some_function()
+# some_function()
 
 # MULTIPLE EXCEPTIONS
 def some_function_multiple_exception():
@@ -36,4 +36,29 @@ def some_function_multiple_exception():
         print("Oops, MORE GENERAL EXCEPTION!!!")
     finally:
         print("This line is always called.")
-some_function_multiple_exception()
+# some_function_multiple_exception()
+
+
+# DECORATORS
+# WE can create handy decorators to reuse code
+
+def handle_exceptions(function):
+    def inner_function(*args, **kwargs):
+        print(f"Calling function {function.__name__}")
+        print(f"args: {args}")
+        print(f"kwargs: {kwargs}")
+        try:
+            return function(*args, **kwargs)
+        except ZeroDivisionError:
+            print("Oops, ZeroDivisionError.")
+        except TypeError:
+            print("Oops, TYPE ERROR!!!")
+        except Exception as error:
+            print(f"Oops, {error}")
+    return inner_function
+
+@handle_exceptions # decorator and we don't need to call handle_exceptions(divide(10, 0))
+def divide(a, b):
+    return a / b
+
+print(divide(10, 0))
