@@ -18,3 +18,22 @@ def some_function():
 
 
 some_function()
+
+# MULTIPLE EXCEPTIONS
+def some_function_multiple_exception():
+# the order of the except blocks is important
+# the first exception that matches the error is the one that is executed
+    try:
+        # raise Exception("This is an exception") # we can raise an exception
+        return 10 / "0"
+    except ZeroDivisionError:
+        print("Oops, ZeroDivisionError.")
+    
+    except TypeError:
+        print("Oops, TYPE ERROR!!!")
+
+    except Exception as error:
+        print("Oops, MORE GENERAL EXCEPTION!!!")
+    finally:
+        print("This line is always called.")
+some_function_multiple_exception()
