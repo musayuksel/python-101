@@ -23,13 +23,25 @@ class Player:
         return f"{self.name} has {self.score} points"
 
 
+class Game:
+    def __init__(self, player1, player2):
+        self.player1 = player1
+        self.player2 = player2
+        self.total_rounds = 0
+    
+    def play(self):
+        pass
+
+    def __str__(self) -> str:
+        return f"{self.player1} vs {self.player2} in {self.total_rounds} rounds" 
 
 print("Welcome to Rock, Paper, Scissors game!")
 print("You will be playing against the computer.")
-print("Enter your name to begin:")
-player_name = input()
+player_name = input("Enter your name to begin:")
 player = Player(player_name)
 computer = Player("Computer")
+game = Game(player, computer)
 
+print(game)
 print(f"Hello {player.name}! Let's begin!")
   
