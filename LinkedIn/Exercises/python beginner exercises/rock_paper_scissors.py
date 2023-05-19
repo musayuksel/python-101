@@ -18,22 +18,23 @@ class Player:
     def __init__(self, name, score=0):
         self.name = name
         self.score = score
-    
+        self.move = None
+
+    def choose_move(self,move):
+        self.move = move
+
     def __str__(self):
-        return f"{self.name} has {self.score} points"
+        return f"{self.name} has {self.score} points and chose {self.move} "
 
 
 class Game:
     def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
-        self.total_rounds = 0
-    
-    def play(self):
-        pass
+        self.rounds = []
 
     def __str__(self) -> str:
-        return f"{self.player1} vs {self.player2} in {self.total_rounds} rounds" 
+        return f"{self.player1} vs {self.player2} in {len(self.rounds)} rounds" 
 
 print("Welcome to Rock, Paper, Scissors game!")
 print("You will be playing against the computer.")
@@ -42,6 +43,9 @@ player = Player(player_name)
 computer = Player("Computer")
 game = Game(player, computer)
 
+
 print(game)
 print(f"Hello {player.name}! Let's begin!")
-  
+player_move = input("Choose your move: Rock, Paper or Scissors:")  
+player.choose_move(player_move)
+print(player)
