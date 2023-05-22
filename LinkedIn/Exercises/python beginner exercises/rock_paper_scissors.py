@@ -14,6 +14,15 @@
 # Improve the readability of the code using Enums and functions
 # Add additional features to increase the overall experience of the game.
 import random
+from enum import Enum
+
+class Move(Enum):
+    ROCK = "rock"
+    PAPER = "paper"
+    SCISSORS = "scissors"
+
+class Winner:
+    winner_move="rock-scissors, scissors-paper, paper-rock"
 class Player:
     def __init__(self, name, score=0):
         self.name = name
@@ -33,29 +42,15 @@ class Game:
         self.rounds = []
 
     def play_round(self):
+
         if self.player1.move == self.player2.move:
             print("It's a tie!")
-        elif self.player1.move == "rock":
-            if self.player2.move == "paper":
-                print(f"{self.player2.name} wins this round!")
-                self.player2.score += 1
-            else:
-                print(f"{self.player1.name} wins this round!")
-                self.player1.score += 1
-        elif self.player1.move == "paper":
-            if self.player2.move == "scissors":
-                print(f"{self.player2.name} wins this round!")
-                self.player2.score += 1
-            else:
-                print(f"{self.player1.name} wins this round!")
-                self.player1.score += 1
-        elif self.player1.move == "scissors":
-            if self.player2.move == "rock":
-                print(f"{self.player2.name} wins this round!")
-                self.player2.score += 1
-            else:
-                print(f"{self.player1.name} wins this round!")
-                self.player1.score += 1
+        elif   f'{self.player1.move}-{self.player2.move}' in Winner.winner_move:
+            print(f"{self.player1.name} wins this round!")
+            self.player1.score += 1
+        elif f'{self.player2.move}-{self.player1.move}' in Winner.winner_move:
+            print(f"{self.player2.name} wins this round!")
+            self.player2.score += 1
         else:
             print("Something went wrong!")
     def __str__(self) -> str:
@@ -76,8 +71,8 @@ for round in range(round_count):
     print(f"Round {round + 1}")
     # player chooses move
     player_move = input("Choose your move: Rock, Paper or Scissors:")  
-    print(f"Computer choses {player_move}")
     player.choose_move(player_move)
     # computer chooses random move
     computer.choose_move(random.choice(["rock", "paper", "scissors"]))
+    print(f"Computer choses {computer.move}")
     game.play_round()
