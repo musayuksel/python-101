@@ -71,9 +71,13 @@ game = Game(player, computer)
 
 print(game)
 print(f"Hello {player.name}! Let's begin!")
-player_move = input("Choose your move: Rock, Paper or Scissors:")  
-player.choose_move(player_move)
-# computer chooses random move
-computer.choose_move(random.choice(["rock", "paper", "scissors"]))
-game.play_round()
-print(player)
+round_count = int(input("How many rounds would you like to play?"))
+for round in range(round_count):
+    print(f"Round {round + 1}")
+    # player chooses move
+    player_move = input("Choose your move: Rock, Paper or Scissors:")  
+    print(f"Computer choses {player_move}")
+    player.choose_move(player_move)
+    # computer chooses random move
+    computer.choose_move(random.choice(["rock", "paper", "scissors"]))
+    game.play_round()
