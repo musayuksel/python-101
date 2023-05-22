@@ -13,7 +13,7 @@
 # Extend the playability by allowing the user to play several games in a row (user input for how many games to play in a row)
 # Improve the readability of the code using Enums and functions
 # Add additional features to increase the overall experience of the game.
-
+import random
 class Player:
     def __init__(self, name, score=0):
         self.name = name
@@ -21,11 +21,10 @@ class Player:
         self.move = None
 
     def choose_move(self,move):
-        self.move = move
+        self.move = move.lower()
 
     def __str__(self):
         return f"{self.name} has {self.score} points and chose {self.move} "
-
 
 class Game:
     def __init__(self, player1, player2):
@@ -33,6 +32,32 @@ class Game:
         self.player2 = player2
         self.rounds = []
 
+    def play_round(self):
+        if self.player1.move == self.player2.move:
+            print("It's a tie!")
+        elif self.player1.move == "rock":
+            if self.player2.move == "paper":
+                print(f"{self.player2.name} wins this round!")
+                self.player2.score += 1
+            else:
+                print(f"{self.player1.name} wins this round!")
+                self.player1.score += 1
+        elif self.player1.move == "paper":
+            if self.player2.move == "scissors":
+                print(f"{self.player2.name} wins this round!")
+                self.player2.score += 1
+            else:
+                print(f"{self.player1.name} wins this round!")
+                self.player1.score += 1
+        elif self.player1.move == "scissors":
+            if self.player2.move == "rock":
+                print(f"{self.player2.name} wins this round!")
+                self.player2.score += 1
+            else:
+                print(f"{self.player1.name} wins this round!")
+                self.player1.score += 1
+        else:
+            print("Something went wrong!")
     def __str__(self) -> str:
         return f"{self.player1} vs {self.player2} in {len(self.rounds)} rounds" 
 
@@ -48,4 +73,7 @@ print(game)
 print(f"Hello {player.name}! Let's begin!")
 player_move = input("Choose your move: Rock, Paper or Scissors:")  
 player.choose_move(player_move)
+# computer chooses random move
+computer.choose_move(random.choice(["rock", "paper", "scissors"]))
+game.play_round()
 print(player)
