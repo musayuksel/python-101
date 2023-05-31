@@ -20,13 +20,6 @@ squares = my_map(square, [1, 2, 3, 4, 5])
 print(squares)
 
 
-# function as a return value from another function
-def logger(msg):
-    return lambda: print('Log:', msg)
-
-log_hi = logger('Hi!')
-log_hi()
-
 # function as a variable
 
 def html_tag(tag):
@@ -37,3 +30,14 @@ def html_tag(tag):
 print_h1 = html_tag('h1')
 print_h1('Test Headline!')
 print_h1('Another Headline!')
+
+
+#RETURNING FUNCTIONS FROM FUNCTIONS
+def logger(msg):
+    def log_message(name):
+        print(f'{name}: {msg}')
+    return log_message
+
+logger('Hi!')("Musa")# AKA currying
+# print(log_hi)
+
