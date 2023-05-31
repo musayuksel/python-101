@@ -59,3 +59,22 @@ def create_counter():
 get_count, increment = create_counter()
 print(increment())
 print(get_count())
+
+
+# HIGH ORDER FUNCTIONS
+# A function that takes a function as an argument or returns a function as a result is a higher-order function
+
+def divide(dividend, divisor):
+    return dividend / divisor
+
+def check_zero(func):
+    def wrapper(*args, **kwargs):
+        if args[1] == 0:
+            print("Can't divide by zero")
+            return
+        return func(*args, **kwargs)
+    return wrapper
+
+divide = check_zero(divide)
+divide(10, 0)# Can't divide by zero
+print(divide(10, 2))# 5.0
