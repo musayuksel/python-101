@@ -41,3 +41,21 @@ def logger(msg):
 logger('Hi!')("Musa")# AKA currying
 # print(log_hi)
 
+# CLOSURES
+# A closure is a record storing a function together with an environment
+
+def create_counter():
+    count = 0
+
+    def get_count():
+        return count
+
+    def increment():
+        nonlocal count # nonlocal keyword is used to work with variables inside nested functions, where the variable should not belong to the inner function.
+        count += 1
+        return count
+    return (get_count,increment)
+
+get_count, increment = create_counter()
+print(increment())
+print(get_count())
