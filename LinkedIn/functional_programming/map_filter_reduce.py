@@ -55,3 +55,8 @@ sum = reduce(
     map(lambda number: number * 2, filter(lambda number: number > 0, number_list)),
     0,
 )  # 20
+
+# OR
+doubled_pos_list = [number * 2 for number in number_list if number > 0]
+print(doubled_pos_list)
+sum = reduce(accumulator, doubled_pos_list, 0)  # 20
