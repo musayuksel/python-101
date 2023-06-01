@@ -15,3 +15,6 @@ positive_list = filter(lambda number: number > 0, number_list)  # [1, 2, 3, 4]
 doubled_list = [
     number * 2 for number in number_list
 ]  # [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8]
+
+# List Comprehension with condition
+positive_list = [number for number in number_list if number > 0]  # [1, 2, 3, 4]
