@@ -42,3 +42,16 @@ sum2 = reduce(accumulator, number_list)  # 0
 # -14 --- -1
 
 sum3 = reduce(lambda acc, number: acc + number, number_list, 0)  # 0
+
+
+#  chaining map, filter, reduce
+def accumulator(acc, number):
+    print(acc, "---", number)
+    return acc + number
+
+
+sum = reduce(
+    accumulator,
+    map(lambda number: number * 2, filter(lambda number: number > 0, number_list)),
+    0,
+)  # 20
