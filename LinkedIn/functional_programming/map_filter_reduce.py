@@ -18,3 +18,27 @@ doubled_list = [
 
 # List Comprehension with condition
 positive_list = [number for number in number_list if number > 0]  # [1, 2, 3, 4]
+
+# REDUCE
+from functools import reduce
+
+
+# reduce(acc, iterable, startValueForAccumulator)
+def accumulator(acc, number):
+    print(acc, "---", number)
+    return acc + number
+
+
+sum = reduce(accumulator, number_list, 0)  # 0
+# 0 --- -5
+# -5 --- -4
+# -9 --- -3
+# -12 --- -2
+# -14 --- -1
+sum2 = reduce(accumulator, number_list)  # 0
+# -5 --- -4
+# -9 --- -3
+# -12 --- -2
+# -14 --- -1
+
+sum3 = reduce(lambda acc, number: acc + number, number_list, 0)  # 0
