@@ -9,3 +9,9 @@ print(list(doubled_list))
 
 # FILTER
 positive_list = filter(lambda number: number > 0, number_list)  # [1, 2, 3, 4]
+
+
+# List Comprehension
+doubled_list = [
+    number * 2 for number in number_list
+]  # [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8]
