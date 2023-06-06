@@ -17,7 +17,7 @@ class Book:
     title: str
     author: str
     pages: int
-    price: float
+    price: float = 39.95  # default value
 
     def bookinfo(self):
         return f"{self.title}, by {self.author}"
@@ -28,7 +28,7 @@ class Book:
 
 
 book1 = Book("War and Peace", "Leo Tolstoy", 1225, 39.95)
-book2 = Book("War and Peace", "Leo Tolstoy", 1225, 39.95)
+book2 = Book("War and Peace", "Leo Tolstoy", 1225)
 
 
 print(book1.title)  # War and Peace
