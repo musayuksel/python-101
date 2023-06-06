@@ -19,6 +19,9 @@ class Book:
     pages: int
     price: float
 
+    def bookinfo(self):
+        return f"{self.title}, by {self.author}"
+
 
 book1 = Book("War and Peace", "Leo Tolstoy", 1225, 39.95)
 book2 = Book("War and Peace", "Leo Tolstoy", 1225, 39.95)
