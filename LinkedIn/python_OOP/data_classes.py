@@ -13,6 +13,7 @@ from dataclasses import dataclass
 
 # This is a data class
 @dataclass
+# dataclass(frozen=True) # if we want to make it immutable
 class Book:
     title: str
     author: str
