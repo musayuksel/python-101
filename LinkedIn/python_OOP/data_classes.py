@@ -22,6 +22,10 @@ class Book:
     def bookinfo(self):
         return f"{self.title}, by {self.author}"
 
+    # POST INIT
+    def __post_init__(self):
+        self.description = f"{self.title} by {self.author}, {self.pages} pages"
+
 
 book1 = Book("War and Peace", "Leo Tolstoy", 1225, 39.95)
 book2 = Book("War and Peace", "Leo Tolstoy", 1225, 39.95)
@@ -35,5 +39,6 @@ print(
     book1
 )  # Book(title='War and Peace', author='Leo Tolstoy', pages=1225, price=39.95)
 
+print(book1.description)  # War and Peace by Leo Tolstoy, 1225 pages
 # it will automatically generate __eq__ method
 print(book1 == book2)  # True
