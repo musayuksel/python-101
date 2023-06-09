@@ -1,3 +1,6 @@
+from pydantic import BaseModel
+
+
 class ContactBase(BaseModel):
     name: str
     address: str
