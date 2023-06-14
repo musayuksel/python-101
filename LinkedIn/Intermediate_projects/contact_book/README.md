@@ -24,3 +24,11 @@ Remember how the database is stored on the user’s computer? What if something 
 You can challenge yourself further and backup the database to an online storage platform. To do this, you can upload the database files to the cloud at certain intervals.
 You can also add a command that allows users to backup the database themselves. This way, the user can still have access to the contacts if the database file is lost.
 You should note that you may need some form of identification, so the contact book can tell which database file belongs to which user. Implementing a user authentication feature is one way to go about it.
+
+## RUN
+
+```bash
+cd LinkedIn/Intermediate_projects/
+uvicorn contact_book.main:app --reload
+http://127.0.0.1:8000/docs
+```
