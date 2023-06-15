@@ -25,3 +25,10 @@ If you wish, you can also let the user decide how deep they want the Directory T
 
 Since the results of the generated directory tree will be on the command-line, you can go one step further. You can have the generator create images of the directory tree, so it’ll basically turn the text into an image.
 You’ll find the pillow library useful for doing this.
+
+## Requirements and Run
+
+```
+pip install coloroma
+python directory_tree_generator.py
+```
