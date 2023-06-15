@@ -15,9 +15,13 @@ def print_tree(path, prefix="", level=0):
 
     color = colors[level % len(colors)]
     for item in os.scandir(path):
-        print(color + prefix + "├── " + item.name)
+        sub_dir_prefix = "v   " if item.is_dir() else ""  # prefix for sub directories
+
+        print(color + prefix + "├── " + sub_dir_prefix + item.name)
+
         if item.is_dir():
             print_tree(item.path, prefix + "│   ", level + 1)
+
     print(Style.RESET_ALL, end="")
 
 
