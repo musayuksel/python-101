@@ -25,4 +25,13 @@ def print_tree(path, prefix="", level=0):
     print(Style.RESET_ALL, end="")
 
 
-print_tree("/Users/musayuksel/Documents/GitHub/python-101/LinkedIn")
+# Ask user for directory tree root and print it. If it is empty, print current directory tree.
+root = input("Enter root directory (a full path):(Press enter for current directory) ")
+if root == "":
+    current_dir = os.getcwd()
+    print("Your current directory tree is:" + current_dir)
+    print_tree(current_dir)
+else:
+    print_tree(root)
+
+# print_tree("/Users/musayuksel/Documents/GitHub/python-101/LinkedIn")
