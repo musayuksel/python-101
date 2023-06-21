@@ -27,3 +27,10 @@ print([*"eleven plus two"])
 
 def is_anagram(word1, word2):
     return sorted(word1) == sorted(word2)
+
+
+def is_palindrome(word):
+    return word == word[::-1]
+
+
+print(is_palindrome("madam"))
