@@ -20,3 +20,10 @@ dev_salaries = [
     employee["salary"] for employee in employees if employee["job_title"] == "Developer"
 ]
 print(dev_salaries)
+
+# ANAGRAMS
+print([*"eleven plus two"])
+
+
+def is_anagram(word1, word2):
+    return sorted(word1) == sorted(word2)
